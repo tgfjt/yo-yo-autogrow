@@ -1,0 +1,25 @@
+{
+  "name": "@tgfjt/yo-yo-autogrow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgfjt/yo-yo-autogrow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tgfjt/yo-yo-autogrow/issues"
+  },
+  "homepage": "https://github.com/tgfjt/yo-yo-autogrow#readme",
+  "keywords": [
+    "yo-yo"
+  ],
+  "author": "tgfjt",
+  "license": "ISC",
+  "dependencies": {
+    "yo-yo": "^1.2.2"
+  }
+}
