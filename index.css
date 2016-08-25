@@ -1,0 +1,50 @@
+:root {
+  --AutogrowTextarea-border: 1px solid #ddd;
+  --AutogrowTextarea-border-focus: 1px solid #9cc;
+  --AutogrowTextarea-width: 100%;
+  --AutogrowTextarea-padding: 4px 6px;
+}
+
+.AutogrowTextarea {
+  border: var(--AutogrowTextarea-border);
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--AutogrowTextarea-padding);
+  width: var(--AutogrowTextarea-width);
+  overflow: hidden;
+}
+
+.AutogrowTextarea.is-focus {
+  border: var(--AutogrowTextarea-border-focus);
+}
+
+.AutogrowTextarea-mirror {
+  visibility: hidden;
+  white-space: pre;
+  word-wrap: break-word;
+}
+
+.AutogrowTextarea-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.AutogrowTextarea textarea {
+  background: inherit;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  height: 100%;
+  line-height: inherit;
+  outline: none;
+  position: relative;
+  resize: none;
+  text-align: inherit;
+  width: 100%;
+  padding: var(--AutogrowTextarea-padding);
+}
