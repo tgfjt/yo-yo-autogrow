@@ -1,11 +1,11 @@
 {
   "name": "@tgfjt/yo-yo-autogrow",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "textarea component via yo-yo, automatically adjust height",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "budo docs/sample.js --live -p 8080 --open -- -t es2020 -t sheetify/transform"
+    "start": "budo example/sample.js --live -p 8080 --open -- -t es2020 -t sheetify/transform"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "yo-yo"
   ],
   "author": "tgfjt",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "yo-yo": "^1.2.2",
     "sheetify": "^5.0.5"

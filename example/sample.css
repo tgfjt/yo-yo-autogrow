@@ -1,0 +1,12 @@
+.custom {
+    --AutogrowTextarea-border: 1px solid #666;
+    --AutogrowTextarea-border-focus: 1px solid #c88;
+    --AutogrowTextarea-width: 320px;
+    --AutogrowTextarea-padding: 8px 10px;
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 15px;
+}
