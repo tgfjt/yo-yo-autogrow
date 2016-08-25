@@ -1,5 +1,5 @@
 {
-  "name": "@tgfjt/yo-yo-autogrow",
+  "name": "yo-yo-autogrow",
   "version": "0.1.0",
   "description": "textarea component via yo-yo, automatically adjust height",
   "main": "index.js",

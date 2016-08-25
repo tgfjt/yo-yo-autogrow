@@ -8,10 +8,10 @@
 .AutogrowTextarea {
   border: var(--AutogrowTextarea-border);
   box-sizing: border-box;
+  overflow: hidden;
   position: relative;
   padding: var(--AutogrowTextarea-padding);
   width: var(--AutogrowTextarea-width);
-  overflow: hidden;
 }
 
 .AutogrowTextarea.is-focus {

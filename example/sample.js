@@ -9,7 +9,7 @@ const prefix = sf('./sample.css')
 const app = choo()
 
 app.model({
-  state: {title: 'Autgrow Textarea!'},
+  state: {title: 'Autogrow Textarea!'},
   reducers: {
     update: (data, state) => ({ title: data })
   }
