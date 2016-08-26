@@ -1,51 +1,85 @@
 var yo = require('yo-yo')
 var sf = require('sheetify')
+var xtend = require('xtend')
+var emitter = require('namespace-emitter')
 
-var prefix = sf('./index.css')
+var styling = sf('./index.css')
 
-module.exports = function(options) {
-  var value = ' '
-  var ph = 'autogrow';
-
-  if (options) {
-    if (options.placeholder) ph = options.placeholder
-    if (options.value) value = options.value + value
+function TextareaData (options) {
+  var defaultProps = {
+    placeholder: '',
+    value: '',
+    name: null,
+    disabled: false,
+    focused: false,
+    required: false,
+    inputmode: null,
+    autocomplete: 'off',
+    rows: '1'
   }
 
-  function textarea (isFocus, val, oninput, placeholder) {
-    placeholder = placeholder || ph
-    val = val || value
-    var tVal = val.trim()
-    var focusClass = isFocus ? 'is-focus' : ''
+  this.state = xtend(defaultProps, options)
+  this.emitter = emitter()
+}
 
-    return yo`
-      <div class="${prefix}">
-        <div class="AutogrowTextarea ${focusClass}">
-          <div class="AutogrowTextarea-mirror">${val}</div>
-          <div class="AutogrowTextarea-container">
-            <textarea placeholder="${placeholder}" rows="1" autocomplete="off"
-              onfocus=${focus}
-              onblur=${blur}
-              oninput=${oninput}>${tVal}</textarea>
-          </div>
+TextareaData.prototype.update = function (event) {
+  switch (event.type) {
+    case 'focus':
+      this.setState({focused: true})
+      this.emitter.emit('update')
+      break
+
+    case 'blur':
+      this.setState({focused: false})
+      this.emitter.emit('update')
+      break
+
+    case 'input':
+      this.setState({value: event.target.value})
+      this.emitter.emit('update')
+      break
+
+    default:
+      break
+  }
+}
+
+TextareaData.prototype.setState = function (newState) {
+  this.state = xtend(this.state, newState)
+}
+
+function textarea (data) {
+  var focusClass = data.state.focused ? 'is-focused' : ''
+  var name = data.state.name ? `name="${data.state.name}"` : ''
+  var inputmode = data.state.inputmode ? `inputmode="${data.state.inputmode}"` : ''
+
+  return yo`
+    <div class="${styling}">
+      <div class="AutogrowTextarea ${focusClass}">
+        <div class="AutogrowTextarea-mirror">${data.state.value + ' '}</div>
+        <div class="AutogrowTextarea-container">
+          <textarea
+            ${name}
+            ${inputmode}
+            rows="${data.state.rows}"
+            placeholder="${data.state.placeholder}"
+            autocomplete="${data.state.autocomplete}"
+            onfocus=${data.update.bind(data)}
+            onblur=${data.update.bind(data)}
+            oninput=${data.update.bind(data)}>${data.state.value}</textarea>
         </div>
       </div>
-    `
-  }
+    </div>
+  `
+}
 
-  var el = textarea(false, value, update)
+module.exports = function (options) {
+  var t = new TextareaData(options)
+  var el = textarea(t)
 
-  function update (e) {
-    yo.update(el, textarea(true, e.target.value + ' ', update))
-  }
-
-  function focus (e) {
-    yo.update(el, textarea(true, e.target.value + ' ', update))
-  }
-
-  function blur (e) {
-    yo.update(el, textarea(false, e.target.value + ' ', update))
-  }
+  t.emitter.on('update', function () {
+    yo.update(el, textarea(t))
+  })
 
   return el
 }

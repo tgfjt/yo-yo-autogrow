@@ -14,7 +14,7 @@
   width: var(--AutogrowTextarea-width);
 }
 
-.AutogrowTextarea.is-focus {
+.AutogrowTextarea.is-focused {
   border: var(--AutogrowTextarea-border-focus);
 }
 
