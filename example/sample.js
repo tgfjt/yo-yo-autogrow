@@ -9,13 +9,10 @@ const prefix = sf('./sample.css')
 const app = choo()
 
 app.model({
-  state: {title: 'Autogrow Textarea!'},
-  reducers: {
-    update: (data, state) => ({ title: data })
-  }
+  state: {title: 'Autogrow Textarea!'}
 })
 
-const mainView = (state, prev, send) => html`
+const mainView = (state) => html`
   <main class="${prefix}">
     <div class="container">
       <h1>${state.title}</h1>

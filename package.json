@@ -21,8 +21,10 @@
   "author": "tgfjt",
   "license": "MIT",
   "dependencies": {
-    "yo-yo": "^1.2.2",
-    "sheetify": "^5.0.5"
+    "namespace-emitter": "^1.0.0",
+    "sheetify": "^5.0.5",
+    "xtend": "^4.0.1",
+    "yo-yo": "^1.2.2"
   },
   "devDependencies": {
     "budo": "^9.0.0",
