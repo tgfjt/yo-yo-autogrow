@@ -47,8 +47,8 @@ TextareaData.prototype.setState = function (newState) {
 }
 
 function textarea (data) {
-  var disabled = data.state.disabled ? `disabled` : ''
-  var required = data.state.required ? `required` : ''
+  var disabled = data.state.disabled ? 'disabled' : ''
+  var required = data.state.required ? 'required' : ''
   var disabledClass = data.state.disabled ? 'is-disabled' : ''
   var focusClass = data.state.focused ? 'is-focused' : ''
 
@@ -58,7 +58,7 @@ function textarea (data) {
         <div class="AutogrowTextarea-mirror">${data.state.value + ' '}</div>
         <div class="AutogrowTextarea-container">
           <textarea rows="1"
-            name="${name}"
+            name="${data.state.name}"
             ${required}
             ${disabled}
             inputmode="${data.state.inputmode}"
