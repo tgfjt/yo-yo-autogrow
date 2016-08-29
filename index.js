@@ -9,13 +9,11 @@ function TextareaData (options) {
   var defaultProps = {
     placeholder: '',
     value: '',
-    name: null,
+    name: '',
     disabled: false,
-    focused: false,
     required: false,
-    inputmode: null,
-    autocomplete: 'off',
-    rows: '1'
+    inputmode: '',
+    autocomplete: 'off'
   }
 
   this.state = xtend(defaultProps, options)
@@ -49,19 +47,21 @@ TextareaData.prototype.setState = function (newState) {
 }
 
 function textarea (data) {
+  var disabled = data.state.disabled ? `disabled` : ''
+  var required = data.state.required ? `required` : ''
+  var disabledClass = data.state.disabled ? 'is-disabled' : ''
   var focusClass = data.state.focused ? 'is-focused' : ''
-  var name = data.state.name ? `name="${data.state.name}"` : ''
-  var inputmode = data.state.inputmode ? `inputmode="${data.state.inputmode}"` : ''
 
   return yo`
     <div class="${styling}">
-      <div class="AutogrowTextarea ${focusClass}">
+      <div class="AutogrowTextarea ${focusClass} ${disabledClass}">
         <div class="AutogrowTextarea-mirror">${data.state.value + ' '}</div>
         <div class="AutogrowTextarea-container">
-          <textarea
-            ${name}
-            ${inputmode}
-            rows="${data.state.rows}"
+          <textarea rows="1"
+            name="${name}"
+            ${required}
+            ${disabled}
+            inputmode="${data.state.inputmode}"
             placeholder="${data.state.placeholder}"
             autocomplete="${data.state.autocomplete}"
             onfocus=${data.update.bind(data)}

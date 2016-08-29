@@ -18,6 +18,11 @@
   border: var(--AutogrowTextarea-border-focus);
 }
 
+.AutogrowTextarea.is-disabled {
+  opacity: .5;
+  background: #eee;
+}
+
 .AutogrowTextarea-mirror {
   visibility: hidden;
   white-space: pre;
@@ -47,4 +52,8 @@
   text-align: inherit;
   width: 100%;
   padding: var(--AutogrowTextarea-padding);
+}
+
+.AutogrowTextarea textarea:disabled {
+  opacity: .5;
 }
