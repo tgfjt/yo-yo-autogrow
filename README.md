@@ -1,25 +1,61 @@
 # autogrow
 
+Wrapper `<textarea />` UI Component made from [yo-yo](https://github.com/maxogden/yo-yo)
+
 ![capture](capture.gif)
 
 ## Usage
 
 ```js
-var autogrow = require('yo-yo-autogrow')
+const autogrow = require('yo-yo-autogrow')
 
-var el = yo`<div>
-  ${autogrow()}
+const el = yo`<div>
+  ${autogrow({
+    required: true,
+    placeholder: 'enter...'
+  })}
 </div>`
 ```
 
-### Properties
+with [Choo](https://github.com/yoshuawuyts/choo)
 
 ```js
-autogrow({
-  value: 'init value',
-  placeholder: 'overwrite placeholder'
+const choo = require('choo')
+const html = require('choo/html')
+const autogrow = require('yo-yo-autogrow')
+
+const app = choo()
+
+app.model({
+  state: {title: 'Sample with choo'}
 })
+
+const mainView = (state) => html`
+  <main>
+    <div>
+      <h1>${state.title}</h1>
+      <form>
+        ${autogrow()}
+      </form>
+    </div>
+  </main>
+`
+
+document.body.appendChild(tree)
 ```
+
+
+### Properties
+
+| Property | Default |
+| :-- | :-- |
+| placeholder | `''` |
+| value | `''` |
+| name | `''` |
+| disabled | `false` |
+| required | `false` |
+| inputmode | `''` |
+| autocomplete | `'off'` |
 
 ### Style
 

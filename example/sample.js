@@ -12,10 +12,12 @@ app.model({
   state: {title: 'Autogrow Textarea!'}
 })
 
+console.log(autogrow())
+
 const mainView = (state) => html`
   <main class="${prefix}">
     <div class="container">
-      <h1>${state.title}</h1>
+      <h1>${state.title} with Choo.</h1>
       <h2>Default</h2>
       <div>
         ${autogrow()}
@@ -23,7 +25,9 @@ const mainView = (state) => html`
       <h3>Custom</h3>
       <div class="custom">
         ${autogrow({
-          placeholder: 'Placeholder from choo!'
+          name: 'comment',
+          placeholder: 'Placeholder from choo!',
+          required: true
         })}
       </div>
     </div>
