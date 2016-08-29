@@ -1,4 +1,8 @@
-# autogrow
+# yo-yo-autogrow
+
+[![npm](https://img.shields.io/npm/v/yo-yo-autogrow.svg?maxAge=2592000)]()
+![API stability](https://img.shields.io/badge/stability-experimental-orange.svg)
+![MIT Licensed](https://img.shields.io/npm/l/yo-yo-autogrow.svg)
 
 Wrapper `<textarea />` UI Component made from [yo-yo](https://github.com/maxogden/yo-yo)
 
