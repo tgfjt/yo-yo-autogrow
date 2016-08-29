@@ -4,7 +4,7 @@
   "description": "textarea component via yo-yo, automatically adjust height",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "zuul --local --open -- tests/test.js",
     "start": "budo example/sample.js --live -p 8080 --open -- -t es2020 -t sheetify/transform"
   },
   "repository": {
@@ -29,6 +29,10 @@
   "devDependencies": {
     "budo": "^9.0.0",
     "choo": "^3.2.0",
-    "es2020": "^1.1.8"
+    "document-ready": "^1.0.2",
+    "es2020": "^1.1.8",
+    "sheetify": "^5.1.0",
+    "tape": "^4.6.0",
+    "zuul": "^3.11.0"
   }
 }
