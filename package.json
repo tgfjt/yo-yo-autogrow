@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "budo": "^9.3.0",
-    "choo": "^4.1.0",
+    "choo": "^5.4.0",
     "document-ready": "^2.0.1",
     "es2020": "^1.1.8",
     "tape": "^4.6.0",
